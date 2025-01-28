@@ -32,11 +32,11 @@ class PresentationAnalyzer:
         
         # Draw video metrics
         metrics_text = [
-            f"Head Tilt: {video_metrics['head_tilt']:.1f}°",
-            f"Head Movement: {video_metrics['head_movement']:.3f}",
+            f"Head Tilt: {video_metrics['head_pose']['pitch']:.1f}°",
+            f"Head Yaw: {video_metrics['head_pose']['yaw']:.1f}°",
+            f"Head Roll: {video_metrics['head_pose']['roll']:.1f}°",
             f"Expression: {video_metrics['expression']}",
-            f"Eyes: {video_metrics['eye_state']}",
-            f"Mouth: {video_metrics['mouth_state']}"
+            f"Posture: {video_metrics['posture']}"
         ]
         
         # Draw each metric
@@ -46,7 +46,7 @@ class PresentationAnalyzer:
             y_offset += 25
         
         # Draw video feedback
-        y_offset += 150
+        y_offset += 10
         cv2.putText(frame, "Face Analysis:", (10, y_offset),
                    font, 1.2, (0, 0, 255), 2)
         y_offset += 25
